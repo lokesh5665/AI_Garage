@@ -31,6 +31,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     header h1 {
@@ -107,11 +110,12 @@
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       padding: 30px 20px;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card:hover {
       transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
 
     .card i {
@@ -146,16 +150,28 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .domains {
+        padding: 0 20px;
+      }
+    }
   </style>
 </head>
 
 <body>
   <!-- Header -->
   <header>
-    <h1>🧠 AI Garage</h1>
+    <h1>🧠 AI_Garage</h1>
     <nav>
       <a href="#vision">Vision</a>
       <a href="#domains">Domains</a>
+      <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -168,7 +184,9 @@
       intelligent tools designed to revolutionize industries like Healthcare,
       IT, Banking, Finance, E-Commerce, and Cybersecurity.
     </p>
-    <button>Explore Projects</button>
+    <button onclick="document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });">
+      Explore Projects
+    </button>
   </section>
 
   <!-- Vision Section -->
@@ -213,6 +231,37 @@
         <i class="fa-solid fa-shield-halved"></i>
         <h3>Cybersecurity</h3>
         <p>Threat detection, anomaly tracking, and vulnerability prediction.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2 class="section-title">💻 Our Projects</h2>
+
+    <div class="domains">
+      <div class="card">
+        <i class="fa-solid fa-robot"></i>
+        <h3>AI Assistant</h3>
+        <p>Context-aware chatbot for Healthcare, IT, and Banking domains.</p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-chart-line"></i>
+        <h3>Data Analyzer</h3>
+        <p>Real-time data validation, analysis, and visualization tool.</p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-file-lines"></i>
+        <h3>Report Generator</h3>
+        <p>AI-based automatic report generation for business insights.</p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-stethoscope"></i>
+        <h3>Health Predictor</h3>
+        <p>Predictive tool for medical diagnosis and patient insights.</p>
       </div>
     </div>
   </section>
